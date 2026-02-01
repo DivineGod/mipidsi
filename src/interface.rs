@@ -7,6 +7,9 @@ pub use spi::*;
 mod parallel;
 pub use parallel::*;
 
+mod parallel_spi;
+pub use parallel_spi::*;
+
 /// Command and pixel interface
 pub trait Interface {
     /// The native width of the interface
@@ -177,4 +180,19 @@ pub enum InterfaceKind {
     /// 8080 style parallel interface with 16 data pins and chip select, write enable,
     /// and command/data signals.
     Parallel16Bit,
+
+    /// 16 bit parallel + spi interface
+    ///
+    /// Sitronix st7701s SPI Command interface and 16 bit RGB interface
+    Parallel16BitSpi,
+    ///
+    /// 18 bit parallel + spi interface
+    ///
+    /// Sitronix st7701s SPI Command interface and 18 bit RGB interface
+    Parallel18BitSpi,
+
+    /// 24 bit parallel + spi interface
+    ///
+    /// Sitronix st7701s SPI Command interface and 24 bit RGB interface
+    Parallel24BitSpi,
 }
